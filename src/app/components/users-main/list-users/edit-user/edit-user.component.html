@@ -1,0 +1,12 @@
+<form [formGroup]="editForm">
+  <div fxLayout="row" fxFlex="100%">
+    <div fxFlex="90%" fxLayoutAlign="start center">
+      <mat-form-field>
+        <input matInput formControlName="userName">
+      </mat-form-field>
+    </div>
+    <div fxFlex="10%" fxLayoutGap="10px" fxLayoutAlign="center center">
+      <button  mat-flat-button color="primary" (click)="sendUserEdit()">Save</button>
+    </div>
+  </div>
+</form>

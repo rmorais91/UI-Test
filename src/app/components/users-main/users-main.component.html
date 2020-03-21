@@ -1,0 +1,21 @@
+<app-form-user (sendUserToAddEvent)="addNewUser($event)">
+</app-form-user>
+
+<div fxLayout="row" class="action-buttons">
+  <div fxLayoutGap="10px" fxLayoutAlign="center center" *ngIf="userList !== undefined">
+    <button [disabled]="userList.length === 0 || controllerEditAll" mat-flat-button color="accent"
+      (click)="controllerEditAll = true">Edit All</button>
+    <button [disabled]="userList.length === 0 || controllerEditAll" mat-flat-button color="warn"
+      (click)="removeAllUsers()">Delete All</button>
+    <button [disabled]="userListEditted.length === 0" *ngIf="controllerEditAll" mat-flat-button color="primary"
+      (click)="saveAll()">Save All</button>
+  </div>
+</div>
+
+<app-list-users *ngIf="!controllerEditAll" [usersList]="userList" [mapEdit]="mapEdit"
+  (sendUserToRemoveEvent)="removeUser($event)" (sendEnableUserToEditEvent)="enableEditingUser($event)"
+  (sendUserEditEvent)="editUser($event)">
+</app-list-users>
+
+<app-edit-users *ngIf="controllerEditAll" [usersList]="userList" (sendUserEditted)="receiverUsersToSave($event)">
+</app-edit-users>

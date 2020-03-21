@@ -1,0 +1,14 @@
+<form [formGroup]="addForm">
+  <div fxLayout="row" fxFlex="100%">
+      <div fxLayoutGap="10px" fxLayoutAlign="end center">
+          <mat-form-field>
+              <mat-label>
+                  Add new user ...
+              </mat-label>
+              <input matInput formControlName="userName">
+          </mat-form-field>
+
+          <button [disabled]="!buttonController" mat-flat-button color="primary" (click)="sendUserToAdd()">Add</button>
+      </div>
+  </div>
+</form>
